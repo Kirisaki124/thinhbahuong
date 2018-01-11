@@ -1,0 +1,148 @@
+.font-25px{
+  font-size: 25px;
+}
+
+.font-comfortaa{
+  font-family: 'Comfortaa', cursive;
+}
+
+.font-nabila {
+  font-family: Nabila;
+}
+
+@font-face {
+  font-family: Nabila;
+  src: url(fonts/Nabila.ttf);
+}
+
+.h-500px{
+  height: 500px;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.bg-lightgreen{
+  background-color: rgb(201,227,223)
+}
+
+.border-h{
+  height: 1px;
+}
+
+.border-w{
+  width: 10px;
+}
+
+.color-orange{
+  border-color: rgb(245, 192, 10)
+}
+
+.color-lightorange{
+  background-color: rgb(255,226,152)
+}
+
+.bg-story-image{
+  background-image: url('images/bg_main.png');
+  background-size: cover;
+  /* background-attachment: fixed; */
+}
+
+.h-100px{
+  height: 100px
+}
+
+.w-600px{
+  width: 600px;
+}
+
+.h-600px{
+  height: 600px;
+}
+
+.h-300px{
+  height: 300px
+}
+
+.bg-female{
+  background-image: url('images/service_image_1.jpg');
+  background-size: cover;
+  height: 300px;
+  width: 50%;
+}
+
+.bg-male{
+  background-image: url('images/service_image_2.jpg');
+  background-size: cover;
+  width: 50%;
+  height: auto;
+}
+
+.object-fit{
+  object-fit: cover
+}
+
+.w-50{
+  width: 50%
+}
+
+.w-20{
+  width: 20%
+}
+
+.text-orange{
+  color: #dc734c
+}
+
+.bg-orange{
+  background-color: #DD744D
+}
+
+.color-black{
+  color: #545454
+}
+
+p { margin:0 }
+
+.font-65px{
+  font-size: 65px
+}
+
+.font-23px{
+  font-size: 20px
+}
+
+.margin-left{
+  margin-left: 0px
+}
+
+.margin-right{
+  margin-right: 0px
+}
+
+.w-30{
+  width: 30%
+}
+
+.bg-left{
+  -webkit-clip-path: polygon(9% 0, 100% 0, 100% 100%, 0 100%);
+clip-path: polygon(9% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.bg-right{
+  -webkit-clip-path: polygon(0 0, 94% 0, 85% 100%, 0% 100%);
+clip-path: polygon(0 0, 94% 0, 85% 100%, 0% 100%);
+}
+
+.ml-6{
+  padding-left: 6px;
+}
+
+.mr-10{
+  margin-right: 10px;
+}
+
+.mt-8{
+  margin-bottom: 8px;
+}
