@@ -44,7 +44,7 @@
 }
 
 .bg-story-image{
-  background-image: url('images/bg_main.png');
+  background-image: url('../images/bg_main.png');
   background-size: cover;
   /* background-attachment: fixed; */
 }
@@ -66,14 +66,14 @@
 }
 
 .bg-female{
-  background-image: url('images/service_image_1.jpg');
+  background-image: url('../images/service_image_1.jpg');
   background-size: cover;
   height: 300px;
   width: 50%;
 }
 
 .bg-male{
-  background-image: url('images/service_image_2.jpg');
+  background-image: url('../images/service_image_2.jpg');
   background-size: cover;
   width: 50%;
   height: auto;
