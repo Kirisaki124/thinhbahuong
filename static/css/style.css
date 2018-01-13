@@ -78,7 +78,12 @@
   width: 50%;
   height: auto;
 }
-
+.w-300{
+  width: 300px;
+}
+.h-300{
+  height: 300px;
+}
 .object-fit{
   object-fit: cover
 }
