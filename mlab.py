@@ -1,4 +1,4 @@
-import mongooengine
+import mongoengine
 # mongodb://<dbuser>:<dbpassword>@ds247327.mlab.com:47327/thinhbahuong
 
 host = 'ds247327.mlab.com'

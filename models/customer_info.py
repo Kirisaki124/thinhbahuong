@@ -11,5 +11,3 @@ class Service_Package(Document):
     name = StringField()
     description = StringField()
     price = IntField()
-    rating = IntField()
-    
