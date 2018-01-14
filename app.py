@@ -52,9 +52,9 @@ def order_summary():
 
 @app.route('/thankyou')
 def send_email():
-    gmail = GMail('hoangc256@gmail.com','tit25061995')
-    msg = Message('Test Message',to= Customer.email,text='Hello')
-    gmail.send(msg)
+    # gmail = GMail('username','password')
+    # msg = Message('Test Message',to= Customer.email,text='Hello')
+    # gmail.send(msg)
     return 'thank you'
 if __name__ == '__main__':
   app.run(debug=True)
