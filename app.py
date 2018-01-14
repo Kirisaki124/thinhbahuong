@@ -36,6 +36,5 @@ def form():
         new_order.save()
         return render_template('thankyou.html')
 
-
 if __name__ == '__main__':
   app.run(debug=True)
