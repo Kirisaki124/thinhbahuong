@@ -1,8 +1,9 @@
 $(document).ready(function() {
-  $("#add_cart_1").c lick(function(event){
-    var num_package = 0
-    
+  var num_package = 0;
+  $("#add_cart_1").click(function(event){
+    num_package += 1;
+    console.log(num_package);
 
-    console.log('ready again');
+    $()
   });
 });

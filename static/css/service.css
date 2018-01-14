@@ -19,3 +19,9 @@
 .text-black{
   color: #030303;
 }
+.w-300{
+  width: 300px;
+}
+.object-fit-contain{
+  object-fit: contain;
+}
