@@ -16,6 +16,7 @@ def index():
 @app.route('/service')
 def service():
     return render_template('service.html')
+    
 @app.route('/pay')
 def pay():
     return render_template('pay.html')
