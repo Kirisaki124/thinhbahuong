@@ -3,7 +3,7 @@ class Customer(Document):
     name = StringField()
     phone = StringField()
     email = StringField()
-    service_package = IntField() # Cơ bản 1, Nâng cao 2, Dài hạn 3
+    package = IntField() # Cơ bản 1, Nâng cao 2, Dài hạn 3
     address = StringField()
     note = StringField()
 

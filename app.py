@@ -1,12 +1,10 @@
-
-from flask import Flask, render_template
-from flask import Flask, render_template,request,redirect,url_for
-from random import choice
-from models.info import Customer
+from flask import Flask, render_template,request,redirect,url_for,session
+from models.customer_info import Customer,Service_Package
+from gmail import GMail,Message
 
 
 app = Flask(__name__)
-
+app.config["SECRET_KEY"] = "falsdkfjlskjfw"
 
 @app.route('/')
 def index():
@@ -30,11 +28,33 @@ def form():
         phone = form['phone']
         address = form['address']
         email = form['email']
-        message = form['message']
-        package = form['package']
-        new_order = Customer(package = package,name = name,phone = phone, address = address, email = email, message = message)
-        new_order.save()
-        return render_template('thankyou.html')
+        note = form['note']
+        new_order = Customer(name = name,phone = phone, address = address, email = email, note = note)
+        # new_order.save()
+        return redirect(url_for('send_email'))
 
+@app.route('/form_package', methods = ["GET","POST"])
+def form_package():
+    if request.method == "GET":
+        return render_template('form_package.html')
+    elif request.method == "POST":
+        form = request.form
+        packages = []
+        for package in form.values():
+            packages.append(package)
+        session['packages'] = packages
+        return redirect(url_for('order_summary', package = package))
+
+@app.route('/order_summary')
+def order_summary():
+    packages = session['packages']
+    return render_template('order_summary.html', packages = packages)
+
+@app.route('/thankyou')
+def send_email():
+    # gmail = GMail('username','password')
+    # msg = Message('Test Message',to= Customer.email,text='Hello')
+    # gmail.send(msg)
+    return 'thank you'
 if __name__ == '__main__':
   app.run(debug=True)

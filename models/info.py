@@ -5,8 +5,9 @@ class Package(Document):
     choice = BooleanField()
 
 class Customer(Document):
-    package = StringField()
+    package = IntField()
     name = StringField()
+    phone = StringField()
     address = StringField()
     email = StringField()
     message = StringField()
