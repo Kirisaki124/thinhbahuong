@@ -16,7 +16,11 @@
 
 @font-face {
   font-family: Nabila;
+<<<<<<< HEAD
   src: url(../fonts/Nabila.ttf);
+=======
+  src: url(../../static/fonts/Nabila.ttf);
+>>>>>>> e6c8dae8f63300b37d3b216362557a7f9beeccbd
 }
 
 .h-500px{
