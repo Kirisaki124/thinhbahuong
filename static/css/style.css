@@ -1,5 +1,9 @@
 .font-25px{
-  font-size: 25px;
+  font-size: 20px;
+}
+
+.font-30px{
+  font-size: 30px;
 }
 
 .font-comfortaa{
@@ -12,7 +16,7 @@
 
 @font-face {
   font-family: Nabila;
-  src: url(../fonts/Nabila.ttf);
+  src: url(fonts/Nabila.ttf);
 }
 
 .h-500px{
@@ -78,12 +82,7 @@
   width: 50%;
   height: auto;
 }
-.w-300{
-  width: 300px;
-}
-.h-300{
-  height: 300px;
-}
+
 .object-fit{
   object-fit: cover
 }
@@ -150,4 +149,20 @@ clip-path: polygon(0 0, 94% 0, 85% 100%, 0% 100%);
 
 .mt-8{
   margin-bottom: 8px;
+}
+
+.bg-test{
+  background-color: gray
+}
+
+.w-30{
+  width: 30%;
+}
+
+.w-70{
+  width: 70%;
+}
+
+.columns-2{
+  column-count: 2:
 }
