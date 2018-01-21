@@ -14,15 +14,15 @@ def index():
 @app.route('/service')
 def service():
     return render_template('service.html')
-    
+
 @app.route('/pay')
 def pay():
     return render_template('pay.html')
 
-@app.route('/form', methods = ["GET","POST"])
+@app.route('/form_customer', methods = ["GET","POST"])
 def form():
     if request.method == "GET":
-        return render_template('form.html')
+        return render_template('pay/form_customer.html')
     elif request.method == "POST":
         form = request.form
         name = form['name']
@@ -37,19 +37,15 @@ def form():
 @app.route('/form_package', methods = ["GET","POST"])
 def form_package():
     if request.method == "GET":
-        return render_template('form_package.html')
+        return render_template('pay/form_package.html')
     elif request.method == "POST":
         form = request.form
         packages = []
         for package in form.values():
             packages.append(package)
         session['packages'] = packages
-        return redirect(url_for('order_summary', package = package))
+        return redirect(url_for('pay', package = package))
 
-@app.route('/order_summary')
-def order_summary():
-    packages = session['packages']
-    return render_template('order_summary.html', packages = packages)
 
 @app.route('/thankyou')
 def send_email():
