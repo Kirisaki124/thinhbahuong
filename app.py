@@ -13,12 +13,23 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/service')
+@app.route('/service', methods = ["GET","POST"])
 def service():
-    return render_template('service.html')
+    if request.method == "GET":
+        return render_template('service.html')
+    elif request.method == "POST":
+        form = request.form
+        packages = {}
+        for key, value in form.items():
+            packages[key] = value
+        session['packages'] = packages
+        print(packages)
+
+        return redirect(url_for('pay', packages = packages))
 
 @app.route('/pay')
 def pay():
+    packages = session
     return render_template('pay.html')
 
 @app.route('/form_customer', methods = ["GET","POST"])
@@ -36,21 +47,11 @@ def form():
         # new_order.save()
         return redirect(url_for('send_email'))
 
-@app.route('/form_package', methods = ["GET","POST"])
-def form_package():
-    if request.method == "GET":
-        return render_template('pay/form_package.html')
-    elif request.method == "POST":
-        form = request.form
-        packages_1 = ['package_1']
-        packages_2 = ['package_2']
-        packages_3 = ['package_3']
-        for package in form.values():
-            packages.append(package)
-        session['packages'] = packages
-        return redirect(url_for('pay', package = package))
 
-
+@app.route('/order_summary')
+def order_summary():
+    packages = session ['packages']
+    return render_templates('pay/ordersummary.html', packages = packages)
 @app.route('/thankyou/<service_id>')
 def send_email(service_id):
     customer_id = Customer.objects().with_id(service_id)
