@@ -1,10 +1,12 @@
 from flask import Flask, render_template,request,redirect,url_for,session
 from models.customer_info import Customer,Service_Package
 from gmail import GMail,Message
+from mlab import mlab_connect
 
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "falsdkfjlskjfw"
+mlab_connect()
 
 @app.route('/')
 def index():
@@ -49,11 +51,14 @@ def form_package():
         return redirect(url_for('pay', package = package))
 
 
-@app.route('/thankyou')
-def send_email():
-    # gmail = GMail('username','password')
-    # msg = Message('Test Message',to= Customer.email,text='Hello')
-    # gmail.send(msg)
+@app.route('/thankyou/<service_id>')
+def send_email(service_id):
+    customer_id = Customer.objects().with_id(service_id)
+    content = '''     '''
+    gmail = GMail('thinhbahuong@gmail.com','123@123a')
+    msg = Message('Test Message',to = customer_id.email, html = content)
+    # msg = Message("Test message", to = "kirisaki124@yahoo.com", html = content)
+    gmail.send(msg)
     return 'thank you'
 if __name__ == '__main__':
   app.run(debug=True)
