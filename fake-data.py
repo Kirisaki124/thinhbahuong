@@ -1,5 +1,5 @@
 from mlab import mlab_connect
-from models.info import *
+from models.customer_info import *
 from faker import Faker
 from random import randint, choice
 
@@ -9,8 +9,7 @@ mlab_connect()
 for _ in range(10):
     services = Customer(
                         name = name_faker.name(),
-                        address = choice(["q","w","e"]),
-                        email = choice(["@123","@456","@789"]),
-                        message = choice(["1","2","3"]),
-                        package = choice(["p1", "p2", "p3"]))
+                        note = choice(["q","w","e"]),
+                        email = choice(["kirisaki124@yahoo.com"]),
+                        package = choice([1, 2, 3]))
     services.save()
