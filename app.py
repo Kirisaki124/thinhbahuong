@@ -40,7 +40,9 @@ def form_package():
         return render_template('pay/form_package.html')
     elif request.method == "POST":
         form = request.form
-        packages = []
+        packages_1 = ['package_1']
+        packages_2 = ['package_2']
+        packages_3 = ['package_3']
         for package in form.values():
             packages.append(package)
         session['packages'] = packages
