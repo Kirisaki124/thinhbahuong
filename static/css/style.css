@@ -138,7 +138,9 @@ p { margin:0 }
 .margin-right{
   margin-right: 0px
 }
-
+.display-none{
+  display: none;
+}
 .w-30{
   width: 30%
 }

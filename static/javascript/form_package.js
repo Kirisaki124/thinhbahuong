@@ -1,13 +1,4 @@
-
 $(document).ready(function() {
-  var total_package = 0;
-  var package_1 = 0;
-  var package_2 = 0;
-  var package_3 = 0;
-  function cart () {
-    $("#cart").html(total_package);
-  };
-
   $("#add_cart_1").click(function(event){
     total_package +=1;
     package_1 +=1;
