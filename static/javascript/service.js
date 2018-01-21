@@ -23,7 +23,7 @@ $(document).ready(function() {
   $("#add_cart_3").click(function(event){
     total_package +=1;
     package_3 +=1;
-    $("#add_cart_2_input").val(package_2);
+    $("#add_cart_3_input").val(package_3);
     cart();
 
   });
