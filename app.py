@@ -32,7 +32,7 @@ def form():
         address = form['address']
         email = form['email']
         note = form['note']
-        new_order = Customer(name = name,phone = phone, address = address, email = email, note = note)
+        new_order = Customer(name = name, phone = phone, address = address, email = email, note = note)
         # new_order.save()
         return redirect(url_for('send_email'))
 
@@ -49,14 +49,13 @@ def form_package():
         return redirect(url_for('pay', package = package))
 
 
-@app.route('/thankyou/<service_id>')
-def send_email(service_id):
-    customer_id = Customer.objects().with_id(service_id)
-    content = '''     '''
+@app.route('/thankyou')
+def send_email():
+    html = open('templates/mail.html').read()
     gmail = GMail('thinhbahuong@gmail.com','123@123a')
-    msg = Message('Test Message',to = customer_id.email, html = content)
-    # msg = Message("Test message", to = "kirisaki124@yahoo.com", html = content)
+    msg = Message('Test Message', to = "damsontung124@gmail.com", html = html)
     gmail.send(msg)
-    return 'thank you'
+    return render_template('mail.html')
+
 if __name__ == '__main__':
   app.run(debug=True)
