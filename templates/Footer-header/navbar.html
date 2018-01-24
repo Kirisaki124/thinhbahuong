@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand text-dark font-weight-bold font-italic font-nabila ml-4" href="{{url_for('index')}}">Thính Bà Hương <i class="fa fa-heart" aria-hidden="true"></i> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,12 @@
 
       <a class="nav-item nav-link text-dark font-25px font-comfortaa" href="{{url_for('pay')}}">Sản phẩm
         <i id="cart" class="fa fa-shopping-cart fa-lg" aria-hidden="true">
-          
+          {% if 'packages' in session %}
+            {% set total = session['packages']["package1"]|int + session['packages']["package2"]|int + session['packages']["package3"]|int %}
+            {% if total != 0 %}
+              {{ total }}
+            {% endif %}
+          {% endif %}
         </i>
       </a>
     </div>

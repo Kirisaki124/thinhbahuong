@@ -23,14 +23,13 @@ def service():
         for key, value in form.items():
             packages[key] = value
         session['packages'] = packages
-        print(packages)
 
         return redirect(url_for('pay', packages = packages))
 
-@app.route('/pay')
+@app.route('/pay', methods = ["GET","POST"])
 def pay():
-    packages = session
-    return render_template('pay.html')
+    packages = session['packages']
+    return render_template('pay.html', packages = packages)
 
 @app.route('/form_customer', methods = ["GET","POST"])
 def form():
