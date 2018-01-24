@@ -42,7 +42,7 @@ def pay():
         # name = form['name']
         # phone = form['phone']
         # address = form['address']
-        email = form['email']
+        # email = form['email']
         # note = form['note']
         # new_order = Customer(name = name,phone = phone, address = address, email = email, note = note)
         # new_order.save()
@@ -52,34 +52,34 @@ def pay():
         index = 1
         sheet.insert_row(Customer, index)
 
-        return redirect(url_for('send_email'))
+        return redirect(url_for('send_email',form = form))
         # return redirect(url_for('send_email'))
 
-@app.route('/form_package', methods = ["GET","POST"])
-def form_package():
-    if request.method == "GET":
-        return render_template('pay/form_package.html')
-    elif request.method == "POST":
-        form = request.form
-        packages = []
-        for package in form.values():
-            packages.append(package)
-        session['packages'] = packages
-        return redirect(url_for('pay', package = package))
-
-
-@app.route('/order_summary')
-def order_summary():
-    packages = session ['packages']
-    return render_templates('pay/ordersummary.html', packages = packages)
-@app.route('/thankyou/<service_id>')
-def send_email(service_id):
-    customer_id = Customer.objects().with_id(service_id)
-    content = '''     '''
+# @app.route('/form_package', methods = ["GET","POST"])
+# def form_package():
+#     if request.method == "GET":
+#         return render_template('pay/form_package.html')
+#     elif request.method == "POST":
+#         form = request.form
+#         packages = []
+#         for package in form.values():
+#             packages.append(package)
+#         session['packages'] = packages
+#         return redirect(url_for('pay', package = package))
+#
+#
+# @app.route('/order_summary')
+# def order_summary():
+#     packages = session ['packages']
+#     return render_templates('pay/ordersummary.html', packages = packages)
+@app.route('/thankyou')
+def send_email():
+    # customer_id = Customer.objects().with_id(service_id)
+    content = '''  abc   '''
     gmail = GMail('thinhbahuong@gmail.com','123@123a')
-    msg = Message('Test Message',to = customer_id.email, html = content)
+    msg = Message('Test Message',to = email,html = content)
     # msg = Message("Test message", to = "kirisaki124@yahoo.com", html = content)
-    gmail.send(msg)
+    gmail.send(msg,email = form['email'])
     return 'thank you'
 if __name__ == '__main__':
   app.run(debug=True)

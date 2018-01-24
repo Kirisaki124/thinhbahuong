@@ -30,6 +30,14 @@
 .h-500px{
   height: 500px;
 }
+.pb-1rem{
+  padding-bottom: 1rem!important;
+}
+.confirm-button{
+  margin-left: 500px;
+  margin-bottom: 20px;
+
+}
 .w-100{
   width: 100%;
 }
