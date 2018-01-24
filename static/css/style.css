@@ -33,7 +33,9 @@
 .w-100{
   width: 100%;
 }
-
+.h-30{
+    height: 30px !important;
+}
 .bg-lightgreen{
   background-color: rgb(201,227,223)
 }
@@ -138,7 +140,9 @@ p { margin:0 }
 .margin-right{
   margin-right: 0px
 }
-
+.display-none{
+  display: none;
+}
 .w-30{
   width: 30%
 }
