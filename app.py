@@ -47,7 +47,7 @@ def pay():
             Customer.append(info)
         index = 1
         sheet.insert_row(Customer, index)
-
+        session.clear()
         return redirect(url_for('send_email',form = form))
         # return redirect(url_for('send_email'))
 
