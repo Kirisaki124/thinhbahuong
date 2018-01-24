@@ -15,3 +15,8 @@ flow = client.flow_from_clientsecrets('client_secret.json',SCOPES)
 creds = tools.run_flow(flow,store,flags)
 
 service = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
+# spreadsheet_body = {'properties': {'title': 'Thính bà Hương [%s]' % time.ctime}}
+#
+# request = service.spreadsheets().create(body=spreadsheet_body).execute()
+# SHEET_ID = request['spreadsheetId']
+# print('Created "%s"' % request['properties']['title'])

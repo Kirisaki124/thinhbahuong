@@ -2,7 +2,7 @@ from flask import Flask, render_template,request,redirect,url_for,session
 from models.customer_info import Customer,Service_Package
 from gmail import GMail,Message
 from mlab import mlab_connect
-
+from sheettest import sheet
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "falsdkfjlskjfw"
@@ -27,27 +27,34 @@ def service():
 
         return redirect(url_for('pay', packages = packages))
 
-@app.route('/pay')
+# @app.route('/pay')
+# def pay():
+#     packages = session
+#     return render_template('pay.html')
+
+@app.route('/pay', methods = ["GET","POST"])
 def pay():
     packages = session
-    return render_template('pay.html')
-
-@app.route('/form_customer', methods = ["GET","POST"])
-def form():
     if request.method == "GET":
-        return render_template('pay/form_customer.html')
+        return render_template('pay.html')
     elif request.method == "POST":
         form = request.form
-        name = form['name']
-        phone = form['phone']
-        address = form['address']
+        # name = form['name']
+        # phone = form['phone']
+        # address = form['address']
         email = form['email']
-        note = form['note']
-        new_order = Customer(name = name,phone = phone, address = address, email = email, note = note)
+        # note = form['note']
+        # new_order = Customer(name = name,phone = phone, address = address, email = email, note = note)
         # new_order.save()
-        return redirect(url_for('send_email'))
+        Customer = []
+        for info in form.values():
+            Customer.append(info)
+        index = 1
+        sheet.insert_row(Customer, index)
 
-<<<<<<< HEAD
+        return redirect(url_for('send_email'))
+        # return redirect(url_for('send_email'))
+
 @app.route('/form_package', methods = ["GET","POST"])
 def form_package():
     if request.method == "GET":
@@ -60,8 +67,6 @@ def form_package():
         session['packages'] = packages
         return redirect(url_for('pay', package = package))
 
-=======
->>>>>>> 74f5b51d2380dd4ef5e3d053bd92dda6197c39a4
 
 @app.route('/order_summary')
 def order_summary():
