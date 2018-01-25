@@ -7,7 +7,7 @@ from sheettest import sheet
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "falsdkfjlskjfw"
 mlab_connect()
-
+Customer = []
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -22,8 +22,8 @@ def service():
         packages = {}
         for key, value in form.items():
             packages[key] = value
+            Customer.append(value)
         session['packages'] = packages
-
         return redirect(url_for('pay', packages = packages))
 
 
@@ -32,23 +32,15 @@ def service():
 def pay():
     packages = session['packages']
     if request.method == "GET":
-        return render_template('pay.html', packages=packages)
+        return render_template('pay.html', packages = packages)
     elif request.method == "POST":
         form = request.form
-        # name = form['name']
-        # phone = form['phone']
-        # address = form['address']
-        # email = form['email']
-        # note = form['note']
-        # new_order = Customer(name = name,phone = phone, address = address, email = email, note = note)
-        # new_order.save()
-        Customer = []
         for info in form.values():
             Customer.append(info)
         index = 1
         sheet.insert_row(Customer, index)
-        session.clear()
-        return redirect(url_for('send_email',form = form))
+        # session.clear()
+        return redirect(url_for('send_email'))
         # return redirect(url_for('send_email'))
 
 # @app.route('/form_package', methods = ["GET","POST"])
@@ -65,11 +57,12 @@ def pay():
 @app.route('/thankyou')
 def send_email():
     # customer_id = Customer.objects().with_id(service_id)
-    content = '''  abc   '''
+    # packages = session['packages']
+    content = open('templates/mail.html', encoding="utf8").read()
     gmail = GMail('thinhbahuong@gmail.com','123@123a')
-    msg = Message('Test Message',to = email,html = content)
-    # msg = Message("Test message", to = "kirisaki124@yahoo.com", html = content)
-    gmail.send(msg,email = form['email'])
+    # msg = Message('Test Message',to = Customer[5], html = content)
+    msg = Message("Test message", to = Customer[5], html = content)
+    gmail.send(msg)
     return 'thank you'
 if __name__ == '__main__':
   app.run(debug=True)

@@ -11,24 +11,30 @@
           <h1 class="text-center" style="box-sizing:border-box;margin-top:0;margin-bottom:0.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit;font-size:2.5rem;text-align:center !important;">C&#7843;m &#417;n b&#7841;n &#273;&atilde; s&#7917; d&#7909;ng d&#7883;ch v&#7909; c&#7911;a ch&uacute;ng t&ocirc;i</h1>
           <h2 class="text-center" style="box-sizing:border-box;margin-top:0;margin-bottom:0.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit;font-size:2rem;text-align:center !important;">D&#432;&#7899;i &#273;&acirc;y l&agrave; &#273;&#417;n h&agrave;ng c&#7911;a b&#7841;n</h2>
       </div>
-      <div class="d-flex justify-content-around mt-5 mb-5" style="box-sizing:border-box;display:flex !important;margin-top:3rem !important;margin-bottom:3rem !important;-ms-flex-pack:distribute !important;justify-content:space-around !important;">
+<div class="container" style="box-sizing:border-box;width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto;max-width:1140px;">
+  <h1 class="text-center" style="box-sizing:border-box;margin-top:0;margin-bottom:0.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit;font-size:2.5rem;text-align:center !important;">Đơn hàng của bạn gồm có</h1>
+{% for package in packages %}
+  <h1 class="text-center" style="box-sizing:border-box;margin-top:0;margin-bottom:0.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit;font-size:2.5rem;text-align:center !important;">{{package}}</h1>
+{% endfor %}
+</div>
+      <div class="row mt-5 mb-5" style="box-sizing:border-box;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px;margin-top:3rem !important;margin-bottom:3rem !important;">
 
-          <div class="" style="box-sizing: border-box;">
+          <div class="col-md-4" style="box-sizing:border-box;position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px;-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%;">
               <h4 class="font-nabila text-dark" style="box-sizing:border-box;margin-top:0;margin-bottom:0.5rem;font-family:Nabila;font-weight:500;line-height:1.2;color:#343a40 !important;font-size:1.5rem;">Th&iacute;nh B&agrave; H&#432;&#417;ng</h4>
               <h3 class="font-weight-light" style="box-sizing:border-box;margin-top:0;margin-bottom:0.5rem;font-family:inherit;font-weight:300 !important;line-height:1.2;color:inherit;font-size:1.75rem;">All rights reserved.</h3>
           </div>
 
 
-          <div class="" style="box-sizing: border-box;">
+          <div class="col-md-4" style="box-sizing:border-box;position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px;-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%;">
               <h2 class="font-weight-light" style="box-sizing:border-box;margin-top:0;margin-bottom:0.5rem;font-family:inherit;font-weight:300 !important;line-height:1.2;color:inherit;font-size:2rem;">FOLLOW US</h2>
-              <div class="d-flex justify-content-around" style="box-sizing:border-box;display:flex !important;-ms-flex-pack:distribute !important;justify-content:space-around !important;">
+              <div class="text-align-center" style="box-sizing: border-box;">
                 <a href="https://www.facebook.com/Th%C3%ADnh-B%C3%A0-H%C6%B0%C6%A1ng-1650719884971595/" style="box-sizing:border-box;color:#007bff;text-decoration:none;background-color:transparent;-webkit-text-decoration-skip:objects;"> <img src="https://i.imgur.com/eidw1rt.png" width="20px" height="auto" style="box-sizing:border-box;vertical-align:middle;border-style:none;"></a>
                 <a href="https://www.instagram.com/thinhbahuong/" style="box-sizing:border-box;color:#007bff;text-decoration:none;background-color:transparent;-webkit-text-decoration-skip:objects;"> <img src="https://i.imgur.com/0TnmQVa.png" width="40px" height="auto" style="box-sizing:border-box;vertical-align:middle;border-style:none;"></a>
               </div>
           </div>
 
 
-          <div class="" style="box-sizing: border-box;">
+          <div class="col-md-4" style="box-sizing:border-box;position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px;-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%;">
               <h2 class="font-weight-light" style="box-sizing:border-box;margin-top:0;margin-bottom:0.5rem;font-family:inherit;font-weight:300 !important;line-height:1.2;color:inherit;font-size:2rem;">CONTACT US</h2>
               <p style="box-sizing:border-box;margin-top:0;margin-bottom:1rem;margin:0;">nit.c4e@gmail.com</p>
               <p style="box-sizing:border-box;margin-top:0;margin-bottom:1rem;margin:0;">01682865389</p>
