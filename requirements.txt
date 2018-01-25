@@ -21,4 +21,6 @@ gunicorn
 # ----------------------
 addict
 shortuuid
-gmail #gspread #oauth2client
+gmail
+gspread
+oauth2client
